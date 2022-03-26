@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Alarm Clock</title>
+  </head>
+
+  <body>
+    <div id="body">
+      <div id="clock">
+        <h2 id="date"></h2>
+        <h3 id="weekday"></h3>
+        <h1 id="timer"></h1>
+      </div>
+
+      <div id="set_alarm">
+        <span>
+          <select name="weekday" id="weekdayList"></select>
+          <select name="hours" id="hours"></select>
+          <select name="minutes" id="minutes"></select>
+          <select name="seconds" id="seconds"></select>
+          <select name="am/pm" id="am_pm">
+            <option value="Am">am</option>
+            <option value="Pm">pm</option>
+          </select>
+        </span>
+        <span><button class="button-59" id="setAlarm">Set Alarm</button></span>
+      </div>
+      <div id="list_items">
+        <ul id="lists"></ul>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
