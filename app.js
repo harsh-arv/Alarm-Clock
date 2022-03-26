@@ -1,3 +1,4 @@
+var body=document.getElementById('body');
 var text = document.getElementById("timer");
 var btn = document.getElementById("setAlarm");
 var del = document.getElementById("delete");
@@ -26,17 +27,18 @@ var weekDay = [
 function time() {
   //get object  today's date and time
   var date = new Date();
-
+  var period = "";
+ 
   //fetch hours from date object
   var hr = date.getHours();
+  period = updatePeriod(hr, period); //updating Am/Pm with respect to hours before converting hr into 12hr format
   hr = update(hr); //convert into 12-hr format
 
   //fetch minutes and seconds from date object
   var min = date.getMinutes();
   var sec = date.getSeconds();
 
-  var period = "";
-  period = updatePeriod(hr, period); //updating Am/Pm with respect to hours
+  
 
   //fetching today's date/month/year
   var todayDate = date.getDate();
@@ -189,21 +191,25 @@ function ringAlarm(weekday, hrs, min, sec, period) {
     var globalTime =
       weekday + " " + hrs + " : " + min + " : " + sec + " " + period;
     var alarm = li[i].innerText.replace("Delete", "");
-    console.log(globalTime);
-    console.log(alarm);
+  
     if (globalTime == alarm) {
-      ringTune.addEventListener("ended", function () {
-        if (loopAudio) {
-          audio.play();
-        }
-      });
-      loopAudio = true;
+      // body.addEventListener('onclick', function () {
+      //   console.log('eokring');
+      //     audio.pause()();
+        
+      // });
+
+      body.onclick=function(){
+        console.log("woeling");
+        ringTune.pause()
+      }
+      console.log('eokring');
       ringTune.play();
       setTimeout(function () {
         alert("Wake Up!!");
       }, 6000);
-      loopAudio = false;
-      ringTune.pause();
+      
+      
     }
   }
 }
